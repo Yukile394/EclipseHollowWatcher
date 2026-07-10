@@ -152,7 +152,7 @@ public class HerobrineEntity extends HostileEntity {
     }
 
     @Override
-    protected void dropEquipment(ServerWorld world) {
+    protected void dropEquipment(ServerWorld world, net.minecraft.entity.damage.DamageSource source, boolean causedByPlayer) {
         // Deliberately drop nothing; this is not meant to be farmed for loot.
     }
 
