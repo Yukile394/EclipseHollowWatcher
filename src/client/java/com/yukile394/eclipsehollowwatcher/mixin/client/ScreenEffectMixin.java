@@ -7,10 +7,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/**
- * Adds a small random pitch/yaw jitter to the player's camera whenever the
- * SCREEN_SHAKE effect is active, driven by {@link ScreenEffectHandler}.
- */
 @Mixin(Camera.class)
 public class ScreenEffectMixin {
 
@@ -21,7 +17,8 @@ public class ScreenEffectMixin {
         if (shakeIntensity > 0.0f) {
             float yawJitter = (ScreenEffectHandler.RANDOM.nextFloat() - 0.5f) * shakeIntensity * 6.0f;
             float pitchJitter = (ScreenEffectHandler.RANDOM.nextFloat() - 0.5f) * shakeIntensity * 4.0f;
-            self.setRotation(self.getYaw() + yawJitter, self.getPitch() + pitchJitter);
+            ((CameraInvokerMixin) (Object) self)
+                    .eclipsehollowwatcher$invokeSetRotation(self.getYaw() + yawJitter, self.getPitch() + pitchJitter);
         }
     }
 }
