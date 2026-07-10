@@ -1,0 +1,15 @@
+{
+  "whisper_1": { "sounds": [{ "name": "eclipsehollowwatcher:whisper_1", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.whisper" },
+  "whisper_2": { "sounds": [{ "name": "eclipsehollowwatcher:whisper_2", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.whisper" },
+  "whisper_name_call": { "sounds": [{ "name": "eclipsehollowwatcher:whisper_name_call", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.whisper_name" },
+  "heartbeat_slow": { "sounds": [{ "name": "eclipsehollowwatcher:heartbeat_slow", "stream": true }], "subtitle": "subtitle.eclipsehollowwatcher.heartbeat" },
+  "heartbeat_fast": { "sounds": [{ "name": "eclipsehollowwatcher:heartbeat_fast", "stream": true }], "subtitle": "subtitle.eclipsehollowwatcher.heartbeat" },
+  "footstep_heavy": { "sounds": [{ "name": "eclipsehollowwatcher:footstep_heavy", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.footstep" },
+  "deep_breath": { "sounds": [{ "name": "eclipsehollowwatcher:deep_breath", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.breath" },
+  "static_radio": { "sounds": [{ "name": "eclipsehollowwatcher:static_radio", "stream": true }], "subtitle": "subtitle.eclipsehollowwatcher.static" },
+  "wind_low": { "sounds": [{ "name": "eclipsehollowwatcher:wind_low", "stream": true }], "subtitle": "subtitle.eclipsehollowwatcher.wind" },
+  "sudden_silence": { "sounds": [{ "name": "eclipsehollowwatcher:sudden_silence", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.silence" },
+  "herobrine_growl": { "sounds": [{ "name": "eclipsehollowwatcher:herobrine_growl", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.growl" },
+  "herobrine_angry_roar": { "sounds": [{ "name": "eclipsehollowwatcher:herobrine_angry_roar", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.roar" },
+  "herobrine_teleport": { "sounds": [{ "name": "eclipsehollowwatcher:herobrine_teleport", "stream": false }], "subtitle": "subtitle.eclipsehollowwatcher.teleport" }
+}
