@@ -9,7 +9,7 @@ import com.yukile394.eclipsehollowwatcher.event.SummonPhraseListener;
 import com.yukile394.eclipsehollowwatcher.network.ModNetworking;
 import com.yukile394.eclipsehollowwatcher.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
