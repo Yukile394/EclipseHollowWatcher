@@ -38,7 +38,7 @@ jobs:
           mkdir -p /tmp/wrapper-scratch
           cd /tmp/wrapper-scratch
           touch settings.gradle
-          gradle wrapper --gradle-version 8.9
+          gradle wrapper --gradle-version 8.11.1
           cp -r gradle "$GITHUB_WORKSPACE/"
           cp gradlew "$GITHUB_WORKSPACE/"
           cp gradlew.bat "$GITHUB_WORKSPACE/"
