@@ -32,6 +32,8 @@ jobs:
       # runner. The generated wrapper files are then copied into the repo.
       - name: Set up temporary Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: true
 
       - name: Generate Gradle wrapper in an isolated scratch dir
         run: |
@@ -47,7 +49,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle wrapper
-        run: ./gradlew build --stacktrace
+        run: ./gradlew clean build --no-build-cache --rerun-tasks --stacktrace
 
       - name: Upload built jar artifacts
         uses: actions/upload-artifact@v4
