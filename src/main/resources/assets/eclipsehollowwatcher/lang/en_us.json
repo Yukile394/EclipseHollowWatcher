@@ -1,0 +1,14 @@
+{
+  "entity.eclipsehollowwatcher.herobrine": "Herobrine",
+  "subtitle.eclipsehollowwatcher.whisper": "Whispering",
+  "subtitle.eclipsehollowwatcher.whisper_name": "Whispering your name",
+  "subtitle.eclipsehollowwatcher.heartbeat": "Heartbeat",
+  "subtitle.eclipsehollowwatcher.footstep": "Heavy footstep",
+  "subtitle.eclipsehollowwatcher.breath": "Deep breathing",
+  "subtitle.eclipsehollowwatcher.static": "Radio static",
+  "subtitle.eclipsehollowwatcher.wind": "Low wind",
+  "subtitle.eclipsehollowwatcher.silence": "Sudden silence",
+  "subtitle.eclipsehollowwatcher.growl": "Distant growl",
+  "subtitle.eclipsehollowwatcher.roar": "Angry roar",
+  "subtitle.eclipsehollowwatcher.teleport": "Something moved"
+}
