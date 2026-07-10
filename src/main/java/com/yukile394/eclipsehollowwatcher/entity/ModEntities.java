@@ -1,6 +1,5 @@
 package com.yukile394.eclipsehollowwatcher.entity;
 
-import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -17,7 +16,7 @@ public final class ModEntities {
             Registries.ENTITY_TYPE,
             HEROBRINE_ID,
             EntityType.Builder.create(HerobrineEntity::new, SpawnGroup.MISC)
-                    .dimensions(EntityDimensions.fixed(0.6f, 1.8f))
+                    .dimensions(0.6f, 1.8f)
                     .maxTrackingRange(96)
                     .trackingTickInterval(1)
                     .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, HEROBRINE_ID))
