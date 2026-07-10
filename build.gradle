@@ -23,6 +23,11 @@ loom {
             sourceSet sourceSets.client
         }
     }
+
+    mixin {
+        defaultRefmapName = "eclipsehollowwatcher-refmap.json"
+        useLegacyMixinAp = true
+    }
 }
 
 dependencies {
