@@ -52,11 +52,11 @@ public class HerobrineEntity extends HostileEntity {
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.MAX_HEALTH, 40.0)
-                .add(EntityAttributes.MOVEMENT_SPEED, 0.28)
-                .add(EntityAttributes.FOLLOW_RANGE, 64.0)
-                .add(EntityAttributes.ATTACK_DAMAGE, 6.0)
-                .add(EntityAttributes.STEP_HEIGHT, 1.2);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 40.0)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.28)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0)
+                .add(EntityAttributes.GENERIC_STEP_HEIGHT, 1.2);
     }
 
     @Override
@@ -92,8 +92,7 @@ public class HerobrineEntity extends HostileEntity {
         HerobrineMood mood = memory.getMood();
         this.dataTracker.set(MOOD_LEVEL, mood.getLevel());
         this.dataTracker.set(ARM_LENGTH_SCALE, mood.getArmLengthScale());
-        this.setScale(mood.getHeightScale());
-        var speedAttr = this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
+        var speedAttr = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
         if (speedAttr != null) {
             speedAttr.setBaseValue(0.28 * mood.getSpeedMultiplier());
         }
@@ -143,8 +142,8 @@ public class HerobrineEntity extends HostileEntity {
     }
 
     @Override
-    public boolean tryAttack(net.minecraft.server.world.ServerWorld world, net.minecraft.entity.Entity target) {
-        boolean success = super.tryAttack(world, target);
+    public boolean tryAttack(net.minecraft.entity.Entity target) {
+        boolean success = super.tryAttack(target);
         if (success && target instanceof LivingEntity livingTarget && trackedPlayerId != null) {
             PlayerMemory memory = HerobrineBrain.getOrCreate(trackedPlayerId);
             memory.registerHostileAction(0); // Herobrine attacking does not raise its own anger.
@@ -163,7 +162,7 @@ public class HerobrineEntity extends HostileEntity {
     }
 
     @Override
-    protected void writeCustomDataToNbt(NbtCompound nbt) {
+    public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         if (trackedPlayerId != null) {
             nbt.putUuid("TrackedPlayer", trackedPlayerId);
@@ -172,7 +171,7 @@ public class HerobrineEntity extends HostileEntity {
     }
 
     @Override
-    protected void readCustomDataFromNbt(NbtCompound nbt) {
+    public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         if (nbt.containsUuid("TrackedPlayer")) {
             this.trackedPlayerId = nbt.getUuid("TrackedPlayer");
