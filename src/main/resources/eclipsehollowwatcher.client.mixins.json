@@ -4,7 +4,8 @@
   "package": "com.yukile394.eclipsehollowwatcher.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "ScreenEffectMixin"
+    "ScreenEffectMixin",
+    "CameraInvokerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
