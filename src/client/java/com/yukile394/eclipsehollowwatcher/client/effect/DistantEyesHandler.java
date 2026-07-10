@@ -1,7 +1,7 @@
 package com.yukile394.eclipsehollowwatcher.client.effect;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.particle.ParticleTypes;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
