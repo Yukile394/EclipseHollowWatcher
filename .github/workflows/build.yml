@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # This repository intentionally does not commit the binary
+      # gradle/wrapper/gradle-wrapper.jar (see README "Gradle Wrapper"
+      # section). This step uses a temporarily-installed Gradle to
+      # regenerate it so the rest of the workflow (and anyone who pulls
+      # this repo) can just run ./gradlew build.
+      - name: Set up temporary Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Generate Gradle wrapper jar
+        run: gradle wrapper --gradle-version 8.9
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle wrapper
+        run: ./gradlew build --stacktrace
+
+      - name: Upload built jar artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: eclipse-hollow-watcher
+          path: build/libs/*.jar
+          if-no-files-found: error
