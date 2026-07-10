@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "eclipsehollowwatcher",
+  "version": "${version}",
+  "name": "Eclipse: The Hollow Watcher",
+  "description": "Psikolojik korku modu - sizi izleyen, öğrenen ve tepki veren bir varlık.",
+  "authors": ["Yukile394"],
+  "contact": {
+    "homepage": "https://github.com/Yukile394/EclipseHollowWatcher"
+  },
+  "license": "MIT",
+  "icon": "assets/eclipsehollowwatcher/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.yukile394.eclipsehollowwatcher.EclipseHollowWatcher"
+    ],
+    "client": [
+      "com.yukile394.eclipsehollowwatcher.client.EclipseHollowWatcherClient"
+    ]
+  },
+  "mixins": [
+    "eclipsehollowwatcher.mixins.json",
+    {
+      "config": "eclipsehollowwatcher.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

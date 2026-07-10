@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.yukile394.eclipsehollowwatcher.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ScreenEffectMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
