@@ -25,14 +25,22 @@ jobs:
 
       # This repository intentionally does not commit the binary
       # gradle/wrapper/gradle-wrapper.jar (see README "Gradle Wrapper"
-      # section). This step uses a temporarily-installed Gradle to
-      # regenerate it so the rest of the workflow (and anyone who pulls
-      # this repo) can just run ./gradlew build.
+      # section). We generate it in an EMPTY scratch directory (not this
+      # project) so the command never has to configure/evaluate our
+      # build.gradle (and therefore never touches the fabric-loom plugin)
+      # with whatever Gradle version happens to be pre-installed on the
+      # runner. The generated wrapper files are then copied into the repo.
       - name: Set up temporary Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Generate Gradle wrapper jar
-        run: gradle wrapper --gradle-version 8.9
+      - name: Generate Gradle wrapper in an isolated scratch dir
+        run: |
+          mkdir -p /tmp/wrapper-scratch
+          cd /tmp/wrapper-scratch
+          gradle wrapper --gradle-version 8.9
+          cp -r gradle "$GITHUB_WORKSPACE/"
+          cp gradlew "$GITHUB_WORKSPACE/"
+          cp gradlew.bat "$GITHUB_WORKSPACE/"
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
